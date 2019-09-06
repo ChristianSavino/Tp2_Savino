@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Tp2_Savino
+namespace Tp2_Savino.Forms
 {
-    public partial class Form1 : Form
+    public partial class Buscar_Eliminar : Form
     {
-        public Form1()
+        public Buscar_Eliminar()
         {
             InitializeComponent();
         }

@@ -46,14 +46,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Clases\Producto.cs" />
+    <Compile Include="Forms\Buscar_Eliminar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Buscar_Eliminar.Designer.cs">
+      <DependentUpon>Buscar_Eliminar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Forms\Menu_Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menu_Principal.Designer.cs">
+      <DependentUpon>Menu_Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NuevoProductofrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NuevoProductofrm.Designer.cs">
+      <DependentUpon>NuevoProductofrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Program.cs" />
+    <Compile Include="Forms\Producto_Buscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Producto_Buscar.Designer.cs">
+      <DependentUpon>Producto_Buscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Producto_Detalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Producto_Detalle.Designer.cs">
+      <DependentUpon>Producto_Detalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Menu_Principal.resx">
+      <DependentUpon>Menu_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NuevoProductofrm.resx">
+      <DependentUpon>NuevoProductofrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Producto_Detalle.resx">
+      <DependentUpon>Producto_Detalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
