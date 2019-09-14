@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E2BD2136-85BC-4AEB-92CA-924718CFBD16}</ProjectGuid>
+    <ProjectGuid>{246089E8-5D5F-4C89-BEF9-3266B0DD8E7B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Tp2_Savino</RootNamespace>
-    <AssemblyName>Tp2_Savino</AssemblyName>
+    <RootNamespace>Negocio</RootNamespace>
+    <AssemblyName>Negocio</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,59 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Buscar_Eliminar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Buscar_Eliminar.Designer.cs">
-      <DependentUpon>Buscar_Eliminar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Listar_Producto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Listar_Producto.Designer.cs">
-      <DependentUpon>Listar_Producto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Menu_Principal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menu_Principal.Designer.cs">
-      <DependentUpon>Menu_Principal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\NuevoProductofrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\NuevoProductofrm.Designer.cs">
-      <DependentUpon>NuevoProductofrm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Clases\Program.cs" />
-    <Compile Include="Forms\Producto_Buscar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Producto_Buscar.Designer.cs">
-      <DependentUpon>Producto_Buscar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Producto_Detalle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Producto_Detalle.Designer.cs">
-      <DependentUpon>Producto_Detalle.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Clases\AccesoDatos.cs" />
+    <Compile Include="Clases\Negocio.cs" />
+    <Compile Include="Clases\Producto.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Listar_Producto.resx">
-      <DependentUpon>Listar_Producto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Producto_Buscar.resx">
-      <DependentUpon>Producto_Buscar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menu_Principal.resx">
-      <DependentUpon>Menu_Principal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NuevoProductofrm.resx">
-      <DependentUpon>NuevoProductofrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Producto_Detalle.resx">
-      <DependentUpon>Producto_Detalle.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -119,13 +71,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Forms\App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Negocio\Negocio.csproj">
-      <Project>{246089e8-5d5f-4c89-bef9-3266b0dd8e7b}</Project>
-      <Name>Negocio</Name>
-    </ProjectReference>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

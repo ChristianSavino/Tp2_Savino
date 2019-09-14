@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.txtPrecio = new System.Windows.Forms.Label();
-            this.txtCategoria = new System.Windows.Forms.Label();
-            this.txtMarca = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCod = new System.Windows.Forms.Label();
+            this.boxCategoria = new System.Windows.Forms.ComboBox();
+            this.boxMarca = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPrecio
@@ -46,26 +48,6 @@
             this.txtPrecio.Size = new System.Drawing.Size(73, 25);
             this.txtPrecio.TabIndex = 16;
             this.txtPrecio.Text = "Precio:";
-            // 
-            // txtCategoria
-            // 
-            this.txtCategoria.AutoSize = true;
-            this.txtCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategoria.Location = new System.Drawing.Point(31, 288);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(103, 25);
-            this.txtCategoria.TabIndex = 15;
-            this.txtCategoria.Text = "Categoria:";
-            // 
-            // txtMarca
-            // 
-            this.txtMarca.AutoSize = true;
-            this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarca.Location = new System.Drawing.Point(31, 238);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(73, 25);
-            this.txtMarca.TabIndex = 14;
-            this.txtMarca.Text = "Marca:";
             // 
             // txtDescripcion
             // 
@@ -107,14 +89,55 @@
             this.txtCod.TabIndex = 10;
             this.txtCod.Text = "Codigo:";
             // 
+            // boxCategoria
+            // 
+            this.boxCategoria.Enabled = false;
+            this.boxCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxCategoria.FormattingEnabled = true;
+            this.boxCategoria.Location = new System.Drawing.Point(156, 284);
+            this.boxCategoria.Name = "boxCategoria";
+            this.boxCategoria.Size = new System.Drawing.Size(293, 33);
+            this.boxCategoria.TabIndex = 18;
+            // 
+            // boxMarca
+            // 
+            this.boxMarca.Enabled = false;
+            this.boxMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxMarca.Location = new System.Drawing.Point(156, 234);
+            this.boxMarca.Name = "boxMarca";
+            this.boxMarca.Size = new System.Drawing.Size(293, 33);
+            this.boxMarca.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(31, 237);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 25);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Marca:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(31, 287);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 25);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Categoria:";
+            // 
             // Producto_Detalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 450);
+            this.ClientSize = new System.Drawing.Size(757, 400);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.boxCategoria);
+            this.Controls.Add(this.boxMarca);
             this.Controls.Add(this.txtPrecio);
-            this.Controls.Add(this.txtCategoria);
-            this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
@@ -130,11 +153,13 @@
         #endregion
 
         private System.Windows.Forms.Label txtPrecio;
-        private System.Windows.Forms.Label txtCategoria;
-        private System.Windows.Forms.Label txtMarca;
         private System.Windows.Forms.Label txtDescripcion;
         private System.Windows.Forms.Label txtName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label txtCod;
+        private System.Windows.Forms.ComboBox boxCategoria;
+        private System.Windows.Forms.ComboBox boxMarca;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }

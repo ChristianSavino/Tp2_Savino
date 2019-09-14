@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tp2_Savino.Forms;
 
 namespace Tp2_Savino
 {
@@ -45,6 +46,42 @@ namespace Tp2_Savino
                 windows.Show();
             }
 
+        }
+
+        private void listarTodosLosProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (windows == null)
+            {
+                windows = new Listar_Producto();
+                windows.MdiParent = this;
+                windows.Show();
+            }
+            else
+            {
+                windows.Close();
+                windows = null;
+                windows = new Listar_Producto();
+                windows.MdiParent = this;
+                windows.Show();
+            }
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (windows == null)
+            {
+                windows = new Producto_Buscar();
+                windows.MdiParent = this;
+                windows.Show();
+            }
+            else
+            {
+                windows.Close();
+                windows = null;
+                windows = new Producto_Buscar();
+                windows.MdiParent = this;
+                windows.Show();
+            }
         }
     }
 }
