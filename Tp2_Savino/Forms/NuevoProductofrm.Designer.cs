@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.titulo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,6 +45,9 @@
             this.txtPrecioPesos = new System.Windows.Forms.TextBox();
             this.txtPrecioCentavos = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.imageTxT = new System.Windows.Forms.TextBox();
+            this.Estadolabel = new System.Windows.Forms.Label();
+            this.EstadoBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -57,15 +60,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo:";
             // 
-            // label2
+            // titulo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(42, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(261, 39);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nuevo Producto";
+            this.titulo.AutoSize = true;
+            this.titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titulo.Location = new System.Drawing.Point(42, 27);
+            this.titulo.Name = "titulo";
+            this.titulo.Size = new System.Drawing.Size(261, 39);
+            this.titulo.TabIndex = 1;
+            this.titulo.Text = "Nuevo Producto";
             // 
             // label3
             // 
@@ -139,7 +142,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(531, 92);
+            this.label8.Location = new System.Drawing.Point(504, 142);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 25);
             this.label8.TabIndex = 10;
@@ -206,12 +209,41 @@
             this.label9.TabIndex = 17;
             this.label9.Text = ".";
             // 
+            // imageTxT
+            // 
+            this.imageTxT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imageTxT.Location = new System.Drawing.Point(593, 142);
+            this.imageTxT.Name = "imageTxT";
+            this.imageTxT.Size = new System.Drawing.Size(293, 30);
+            this.imageTxT.TabIndex = 18;
+            // 
+            // Estadolabel
+            // 
+            this.Estadolabel.AutoSize = true;
+            this.Estadolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Estadolabel.Location = new System.Drawing.Point(504, 92);
+            this.Estadolabel.Name = "Estadolabel";
+            this.Estadolabel.Size = new System.Drawing.Size(79, 25);
+            this.Estadolabel.TabIndex = 19;
+            this.Estadolabel.Text = "Estado:";
+            // 
+            // EstadoBox
+            // 
+            this.EstadoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EstadoBox.FormattingEnabled = true;
+            this.EstadoBox.Location = new System.Drawing.Point(593, 89);
+            this.EstadoBox.Name = "EstadoBox";
+            this.EstadoBox.Size = new System.Drawing.Size(293, 33);
+            this.EstadoBox.TabIndex = 20;
+            // 
             // NuevoProductofrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(973, 502);
+            this.Controls.Add(this.EstadoBox);
+            this.Controls.Add(this.Estadolabel);
+            this.Controls.Add(this.imageTxT);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtPrecioCentavos);
             this.Controls.Add(this.txtPrecioPesos);
@@ -227,9 +259,11 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.titulo);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "NuevoProductofrm";
+            this.RightToLeftLayout = true;
             this.Text = "NuevoProductofrm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.NuevoProductofrm_Load);
@@ -241,7 +275,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label titulo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -257,5 +291,8 @@
         private System.Windows.Forms.TextBox txtPrecioPesos;
         private System.Windows.Forms.TextBox txtPrecioCentavos;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox imageTxT;
+        private System.Windows.Forms.Label Estadolabel;
+        private System.Windows.Forms.ComboBox EstadoBox;
     }
 }

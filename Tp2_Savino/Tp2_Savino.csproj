@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Buscar_Eliminar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Buscar_Eliminar.Designer.cs">
-      <DependentUpon>Buscar_Eliminar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Listar_Producto.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -14,46 +14,64 @@ namespace Tp2_Savino
 
     public partial class NuevoProductofrm : Form
     {
+        private int iid;
+
+        public int id
+        {
+            get
+            {
+                return iid;
+            }
+            set
+            {
+                iid = value;
+            }
+        }
+
         private float precio;
         public NuevoProductofrm()
         {
             InitializeComponent();
         }
 
-        public void ObtenerComboBoxes()
-        {
-            try
-            {
-                Negocios.Negocio negocio = new Negocios.Negocio();
-                DataTable IdataMarca = new DataTable();
-                DataTable IDataCategoria = new DataTable();
-                IdataMarca = negocio.ObtenerDataTable(false,"","Select descripcion from marcas");
-                IDataCategoria = negocio.ObtenerDataTable(false, "", "Select descripcion from categorias");
-                boxCategoria.DataSource = IDataCategoria.DefaultView;
-                boxCategoria.DisplayMember = "Descripcion";
-                boxMarca.DataSource = IdataMarca.DefaultView;
-                boxMarca.DisplayMember = "Descripcion";
-                negocio = null;
-                IdataMarca = null;
-                IDataCategoria = null;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
 
+        private void SetearDatos(Producto prod)
+        {
+            txtCod.Text = prod.codigo;
+            txtNombre.Text = prod.nombre;
+            txtDesc.Text = prod.descripcion;
+            boxMarca.SelectedIndex = prod.marca - 1;
+            boxCategoria.SelectedIndex = prod.categoria - 1;
+            txtPrecioPesos.Text = prod.precio.ToString();
+            imageTxT.Text = prod.imagen;
         }
 
         private void NuevoProductofrm_Load(object sender, EventArgs e)
         {
-            ObtenerComboBoxes();
-          
+            Negocios.Negocio negocio = new Negocios.Negocio();
+            negocio.ObtenerComboBoxes(boxMarca, "marcas");
+            negocio.ObtenerComboBoxes(boxCategoria, "Categorias");
+            negocio = null;
+            EstadoBox.Hide();
+            Estadolabel.Hide();
+            if(id != 0)
+            {
+                negocio = new Negocios.Negocio();
+                Producto prod = new Producto();
+                prod = negocio.ObtenerProducto(id);
+                SetearDatos(prod);
+                titulo.Text = "Modificar Producto";
+                EstadoBox.Show();
+                EstadoBox.Items.Add("Alta");
+                EstadoBox.Items.Add("Baja");
+                Estadolabel.Show();
+            }
             txtCod.MaxLength =50;
             txtNombre.MaxLength = 50;
             txtDesc.MaxLength = 150;
             txtPrecioCentavos.MaxLength = 2;
-            
-           
+            imageTxT.MaxLength = 150;
+            negocio = null;         
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,27 +82,31 @@ namespace Tp2_Savino
                 {
                     Negocios.Negocio negocio = new Negocios.Negocio();
                     Producto prod = new Producto();
+                    prod.id = id;
                     prod.codigo = txtCod.Text;
                     prod.nombre = txtNombre.Text;
                     prod.descripcion = txtDesc.Text;
-                    prod.imagen = "Imagen";
+                    prod.imagen = imageTxT.Text;
                     prod.marca = boxMarca.SelectedIndex + 1;
                     prod.categoria = boxCategoria.SelectedIndex + 1;
                     prod.precio = precio;
-                    negocio.NuevoProducto(prod);
-
-                    /*Producto_Detalle detalleproducto = new Producto_Detalle();
-                    detalleproducto.SetearDatos(prod);
-                    detalleproducto.Show();*/
-
-                    MessageBox.Show("Producto Creado", "Keruministrador - Nuevo Producto");
+                    if(prod.id != 0)
+                    {
+                        negocio.Actualizar(prod);
+                        MessageBox.Show("Producto Actualizado", "Keruministrador - Actualizar Producto");
+                    }
+                    else
+                    {
+                        negocio.NuevoProducto(prod);
+                        MessageBox.Show("Producto Creado", "Keruministrador - Nuevo Producto");
+                    }
+                    
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Keruministrador - Error!");
             }
-
         }
 
         private bool validarDatos()
