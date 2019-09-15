@@ -37,13 +37,35 @@ namespace Tp2_Savino
 
         private void SetearDatos(Producto prod)
         {
-            txtCod.Text = prod.codigo;
-            txtNombre.Text = prod.nombre;
-            txtDesc.Text = prod.descripcion;
-            boxMarca.SelectedIndex = prod.marca - 1;
-            boxCategoria.SelectedIndex = prod.categoria - 1;
-            txtPrecioPesos.Text = prod.precio.ToString();
-            imageTxT.Text = prod.imagen;
+            try
+            {
+                txtCod.Text = prod.codigo;
+                txtNombre.Text = prod.nombre;
+                txtDesc.Text = prod.descripcion;
+                if (prod.marca - 1 > boxMarca.Items.Count - 1)
+                {
+                    MessageBox.Show("La Marca en base de datos tiene un dato incorrecto \n Corregir usando la funcion Modificar", "Keruministrador - Alerta");
+                }
+                else
+                {
+                    boxMarca.SelectedIndex = prod.marca - 1;
+                }
+                if (prod.categoria - 1 > boxCategoria.Items.Count - 1)
+                {
+                    MessageBox.Show("La Categoria en base de datos tiene un dato incorrecto \n Corregir usando la funcion Modificar", "Keruministrador - Alerta");
+                }
+                else
+                {
+                    boxCategoria.SelectedIndex = prod.categoria - 1;
+                }
+                txtPrecioPesos.Text = prod.precio.ToString();
+                imageTxT.Text = prod.imagen;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private void NuevoProductofrm_Load(object sender, EventArgs e)
@@ -52,19 +74,20 @@ namespace Tp2_Savino
             negocio.ObtenerComboBoxes(boxMarca, "marcas");
             negocio.ObtenerComboBoxes(boxCategoria, "Categorias");
             negocio = null;
-            EstadoBox.Hide();
-            Estadolabel.Hide();
-            if(id != 0)
+            this.Text = "Keruministrador - Nuevo Producto";
+            if (id != 0)
             {
                 negocio = new Negocios.Negocio();
                 Producto prod = new Producto();
                 prod = negocio.ObtenerProducto(id);
+                if (prod.imagen != "" && prod.imagen.Length > 5)
+                {
+                    Image img = negocio.ObtenerImagen(prod.imagen);
+                    SetearImagen(img);
+                }
                 SetearDatos(prod);
                 titulo.Text = "Modificar Producto";
-                EstadoBox.Show();
-                EstadoBox.Items.Add("Alta");
-                EstadoBox.Items.Add("Baja");
-                Estadolabel.Show();
+                this.Text = "Keruministrador - Modificar Producto";
             }
             txtCod.MaxLength =50;
             txtNombre.MaxLength = 50;
@@ -168,6 +191,31 @@ namespace Tp2_Savino
                 return false;
             }
             return true;
+        }
+
+        private void imageTxT_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (imageTxT.Text != "")
+                {
+                    Negocios.Negocio negocio = new Negocios.Negocio();
+                    Image img = negocio.ObtenerImagen(imageTxT.Text);
+                    SetearImagen(img);
+                    negocio = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        private void SetearImagen(Image img)
+        {
+            pictureBox1.Image = img;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
 }

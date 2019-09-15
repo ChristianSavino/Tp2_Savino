@@ -81,16 +81,19 @@ namespace Tp2_Savino.Forms
 
         private void Ver_Click(object sender, EventArgs e)
         {
-            Producto_Detalle detalle = new Producto_Detalle();
-            detalle.id = (int.Parse(iDataGrid.Rows[iDataGrid.CurrentCell.RowIndex].Cells["id"].Value.ToString()));
-            detalle.Show();
+            if(iDataGrid.DataSource != null && iDataGrid.CurrentCell != null)
+            {
+                Producto_Detalle detalle = new Producto_Detalle();
+                detalle.id = (int.Parse(iDataGrid.Rows[iDataGrid.CurrentCell.RowIndex].Cells["id"].Value.ToString()));
+                detalle.Show();
+            }
         }
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (iDataGrid.DataSource != null)
+                if (iDataGrid.DataSource != null && iDataGrid.CurrentCell != null)
                 {
                     DialogResult dialogResult = MessageBox.Show("¿Desea Eliminar el producto?", "Keruministrador - Eliminar Producto", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
@@ -113,7 +116,7 @@ namespace Tp2_Savino.Forms
         {
             try
             {
-                if (iDataGrid.DataSource != null)
+                if (iDataGrid.DataSource != null && iDataGrid.CurrentCell != null)
                 {
                     NuevoProductofrm detalle = new NuevoProductofrm();
                     detalle.WindowState = FormWindowState.Normal;

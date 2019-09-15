@@ -6,18 +6,21 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
+using System.IO;
+using System.Drawing;
 
 namespace Tp2_Savino.Negocios
 {
     public class Negocio
     {
-        public DataTable ObtenerDataTable(bool usaCondicion, string condicion,string consulta)
+        public DataTable ObtenerDataTable(bool usaCondicion, string condicion, string consulta)
         {
             try
             {
                 AccesoDatos conexion = new AccesoDatos();
                 DataTable idataTable = new DataTable();
-                if(usaCondicion)
+                if (usaCondicion)
                 {
                     conexion.setearConsulta(consulta + " " + condicion);
                 }
@@ -65,7 +68,7 @@ namespace Tp2_Savino.Negocios
                     conexion = null;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -136,11 +139,11 @@ namespace Tp2_Savino.Negocios
                 conexion.ejecutarConsulta();
                 if (conexion.Lector.HasRows)
                 {
-                    if(conexion.Lector.Read() && p.id != 0)
+                    if (conexion.Lector.Read() && p.id != 0)
                     {
                         if (p.codigo != conexion.Lector.GetString(conexion.Lector.GetOrdinal("Codigo")))
                         {
-                            if(p.id != conexion.Lector.GetInt32(conexion.Lector.GetOrdinal("id")))
+                            if (p.id != conexion.Lector.GetInt32(conexion.Lector.GetOrdinal("id")))
                             {
                                 throw new Exception(error);
                             }
@@ -159,7 +162,7 @@ namespace Tp2_Savino.Negocios
                         conexion.cerrarConexion();
                     }
                     conexion = null;
-                    
+
                 }
                 return true;
             }
@@ -198,18 +201,72 @@ namespace Tp2_Savino.Negocios
             catch (Exception ex)
             {
                 throw ex;
-            }          
+            }
         }
 
         public void ObtenerComboBoxes(ComboBox com, string tabla)
         {
             try
             {
-                Negocios.Negocio negocio = new Negocios.Negocio();
+                Negocio negocio = new Negocio();
                 DataTable idatatable = new DataTable();
-                idatatable = negocio.ObtenerDataTable(false, "", "Select descripcion from "+ tabla);
+                idatatable = negocio.ObtenerDataTable(false, "", "Select descripcion from " + tabla);
                 com.DataSource = idatatable.DefaultView;
                 com.DisplayMember = "Descripcion";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private byte[] DescargarImagen(string url)
+        {
+            try
+            {
+                byte[] image = new byte[0];
+                WebRequest req = WebRequest.Create(url);
+                WebResponse response = req.GetResponse();
+                Stream stream = response.GetResponseStream();
+
+                byte[] buffer = new byte[1024];
+                MemoryStream memStream = new MemoryStream();
+                while (true)
+                {
+                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
+
+                    if (bytesRead == 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        memStream.Write(buffer, 0, bytesRead);
+                    }
+                }
+                image = memStream.ToArray();
+                stream.Close();
+                memStream.Close();
+                return image;
+               
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //Start the downloading process
+        public Image ObtenerImagen(string url)
+        {
+            try
+            {
+                byte[] image = new byte[0];
+                image = DescargarImagen(url);
+                MemoryStream stream = new MemoryStream(image);
+                Image img = Image.FromStream(stream);
+                stream.Close();
+                return img;
             }
             catch (Exception ex)
             {

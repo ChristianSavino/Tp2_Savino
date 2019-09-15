@@ -226,7 +226,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Producto_Buscar";
-            this.Text = "Producto_Buscar";
+            this.Text = "Keruministrador - Buscar Producto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Producto_Buscar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.iDataGrid)).EndInit();

@@ -46,8 +46,8 @@
             this.txtPrecioCentavos = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.imageTxT = new System.Windows.Forms.TextBox();
-            this.Estadolabel = new System.Windows.Forms.Label();
-            this.EstadoBox = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -142,7 +142,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(504, 142);
+            this.label8.Location = new System.Drawing.Point(492, 94);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 25);
             this.label8.TabIndex = 10;
@@ -212,37 +212,27 @@
             // imageTxT
             // 
             this.imageTxT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imageTxT.Location = new System.Drawing.Point(593, 142);
+            this.imageTxT.Location = new System.Drawing.Point(581, 94);
             this.imageTxT.Name = "imageTxT";
             this.imageTxT.Size = new System.Drawing.Size(293, 30);
             this.imageTxT.TabIndex = 18;
+            this.imageTxT.TextChanged += new System.EventHandler(this.imageTxT_TextChanged);
             // 
-            // Estadolabel
+            // pictureBox1
             // 
-            this.Estadolabel.AutoSize = true;
-            this.Estadolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Estadolabel.Location = new System.Drawing.Point(504, 92);
-            this.Estadolabel.Name = "Estadolabel";
-            this.Estadolabel.Size = new System.Drawing.Size(79, 25);
-            this.Estadolabel.TabIndex = 19;
-            this.Estadolabel.Text = "Estado:";
-            // 
-            // EstadoBox
-            // 
-            this.EstadoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EstadoBox.FormattingEnabled = true;
-            this.EstadoBox.Location = new System.Drawing.Point(593, 89);
-            this.EstadoBox.Name = "EstadoBox";
-            this.EstadoBox.Size = new System.Drawing.Size(293, 33);
-            this.EstadoBox.TabIndex = 20;
+            this.pictureBox1.Location = new System.Drawing.Point(581, 136);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(293, 282);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
             // 
             // NuevoProductofrm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(973, 502);
-            this.Controls.Add(this.EstadoBox);
-            this.Controls.Add(this.Estadolabel);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.imageTxT);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtPrecioCentavos);
@@ -264,9 +254,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "NuevoProductofrm";
             this.RightToLeftLayout = true;
-            this.Text = "NuevoProductofrm";
+            this.Text = "Keruministrador -";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.NuevoProductofrm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,7 +283,6 @@
         private System.Windows.Forms.TextBox txtPrecioCentavos;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox imageTxT;
-        private System.Windows.Forms.Label Estadolabel;
-        private System.Windows.Forms.ComboBox EstadoBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
